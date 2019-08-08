@@ -1,0 +1,210 @@
+body {
+	margin: 0;
+}
+
+.right {
+	text-align:right;
+}
+
+.outer {
+	margin: 0 auto;
+	background: white;
+	padding:10px;
+	padding-top:0px;
+}
+
+
+.page-term .terms .term .title {
+	color: #080808;
+    font-size: 120%;
+} 
+
+.page-term .terms .term .content {
+	color: #6f6d6d;
+	display:none;
+} 
+
+.page-term .terms .term .content a.fold-up {
+	font-size: 90%;
+}
+
+.page-learn .exercise {
+    display: inline-block;
+    width: 300px;
+    font-size: 150%;
+    padding: 10px;
+}
+
+.page-learn .exercise .question{
+	display: inline-block;
+	width:100px;
+}
+
+.page-learn .exercise .answer{
+	display: inline-block;
+	width:100px;
+}
+.page-learn .exercise .answer input{
+	margin-left:10px;
+	width:30px;
+	border: none;
+    border-bottom: solid 1px;
+}
+.page-learn .exercise .check{
+	display: inline-block;
+}
+
+.page-stock {
+	
+}
+
+.page-stock .outer {
+	width:1200px;
+}
+
+.page-stock .small th{
+	font-size:85%;
+	width:60px;
+}
+
+.page-stock .tbl-stock {
+	width:2100px;
+}
+
+.page-stock .tbl-report {
+	width:1000px;
+}
+
+.page-stock .small td{
+	font-size:85%;
+	width:60px;
+}
+
+.page-stock .fill-width {
+	width:auto!important;
+}
+
+.page-stock .input-sm{
+	height:22px;
+	padding:0 3px;
+	border: solid 1px #a1a1a1;
+}
+
+.page-stock .left-part {
+	float:left;
+	width:600px;
+	overflow-x:auto;
+	margin-right:20px;
+}
+
+.page-stock .right-part {
+	float:right;
+	width:540px;
+	overflow-x:auto;
+}
+
+.page-stock .right-part .report {
+	height:300px;
+	overflow-y:auto;
+}
+
+.page-stock .condition {
+    border-bottom: solid 1px burlywood;
+    padding: 10px;
+    clear: both;
+}
+
+.page-stock .condition .title {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-size: 90%;
+}
+
+.page-stock .condition .field {
+    display: inline-block;
+    margin-bottom:5px;
+}
+
+.page-stock .condition .field input {
+	text-align: right;
+	display: inline-block;
+}
+.page-stock .condition .field .one {
+	width:170px;
+}
+.page-stock .condition .field .two {
+	width:80px;
+}
+
+.page-stock .btn-area {
+    display: inline-block;
+    margin-left: 100px;
+    float: right;
+}
+
+.page-stock .condition {
+	font-size:90%;
+	display: inline-block;
+    width: 96%;
+}
+
+.page-stock .condition .filterName {
+	margin-left:50px;
+	display:inline-block;
+	width:200px;
+}
+
+.page-stock table td {
+    font-size: 85%;
+}
+
+.page-stock .list {
+    height: 360px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.page-main iframe.stock-frame {
+    width: 100%;
+    height: 590px;
+    border: none;
+}
+
+.page-main .input-sm {
+    height: 22px;
+    padding: 0 3px;
+}
+
+.page-main .add-stockhold {
+    margin:10px 0
+}
+
+.page-main input.addStockHoldCode {
+    display: inline-block;
+    width: 100px;
+}
+.page-main td, .page-main th {
+    padding: 2px 2px;
+    border-bottom: solid 1px #888888;
+    min-width: 100px;
+    font-size: 85%;
+}
+
+.page-main .tab-pane .form-control {
+	display: inline-block;
+	width: 120px;
+	margin-bottom: 5px;
+	border: solid 1px #a1a1a1;
+}
+
+.page-main .tab-pane .title {
+    border-left: solid 2px #777;
+    margin-bottom: 5px;
+    font-size: 85%;
+    color: orange;
+    margin-top: 10px;
+    width: 60px;
+    padding-left: 3px;
+    border-radius: 3px;
+}

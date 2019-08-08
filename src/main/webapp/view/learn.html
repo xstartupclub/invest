@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>练习</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/invest/vender/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+	type="text/css" rel="stylesheet">
+<link href="/invest/css/all.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/invest/vender/jquery-3.3.1.min.js"></script>
+<script type="text/javascript"
+	src="/invest/vender/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/invest/js/learn.js"></script>
+</head>
+<body class="page-learn">
+	<div class="outer">
+		<div class="condition">
+			<table>
+				<tr>
+					<td>题目数</td>
+					<td><select name="count" class="form-control count">
+							<option value="50">50</option>
+							<option value="100">100 </option>
+							<option value="200">200 </option>
+					</select></td>
+					<td>数字范围</td>
+					<td><select name="range" class="form-control range" >
+							<option value="30">30 以内</option>
+							<option value="100">100 以内</option>
+					</select></td>
+					<td><button id="create" type="button">生成</button></td>
+					<td><button id="finish" type="button">提交</button></td>
+					<td class="score"></td>
+				</tr>
+			</table>
+
+		</div>
+		<div class="content"></div>
+	</div>
+</body>
+</html>

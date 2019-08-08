@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xstartup.invest.dao.InvestDao">
+
+	<select id="getSql" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select content from sql_manager where id=#{sqlId}
+	</select>
+
+	<select id="getData" resultType="java.util.Map" parameterType="java.lang.String">
+		${value}
+	</select>
+
+	<select id="getFilters" resultType="java.util.Map" >
+		select id,name from sql_manager where type=5
+	</select>
+	
+	<insert id="saveFilter" parameterType="java.util.Map" >
+		insert into sql_manager (content, comment, type,name) 
+		values(#{content},#{comment},#{type},#{name})
+	</insert>
+	
+	<insert id="addStockHold" parameterType="java.lang.String" >
+		insert into stock_hold (code, name) 
+		values(#{code},(select name from stock_base where code=#{code}))
+	</insert>
+	
+	<delete id="deleteStockHold" parameterType="java.lang.String" >
+		delete from stock_hold where code=#{code}
+	</delete>
+	
+	<insert id="addStockBill" parameterType="java.util.Map" >
+		insert into stock_bill (code,date,type, name,price,volume,amount) 
+		values(#{code},#{date},#{type},(select name from stock_base where code=#{code}),
+		#{price},#{volume},#{amount})
+	</insert>
+	
+	<delete id="deleteStockBill" parameterType="java.lang.Integer" >
+		delete from stock_bill where id=#{id}
+	</delete>
+		
+	<insert id="addAccountBill" parameterType="java.util.Map" >
+		insert into account_bill (date,type, amount,money,stock) 
+		values(#{date},#{type},#{amount},#{money},#{stock})
+	</insert>
+	
+	<delete id="deleteAccountBill" parameterType="java.lang.Integer" >
+		delete from account_bill where id=#{id}
+	</delete>
+	
+	<select id="getCodeData" resultType="java.util.Map" parameterType="java.lang.Integer">
+		select code, name from m_code where type=#{type}
+	</select>
+</mapper>   

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>数据分析</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../vender/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+	type="text/css" rel="stylesheet">
+<link href="../css/all.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../vender/jquery-3.3.1.min.js"></script>
+<script type="text/javascript"
+	src="../vender/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="../vender/Chart.js-2.8.0/dist/Chart.min.js"></script>
+<script type="text/javascript"
+	src="../vender/Chart.js-2.8.0/samples/utils.js"></script>
+<script type="text/javascript" src="../js/stock.js"></script>
+<style>
+canvas {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+</style>
+</head>
+<body class="page-stock">
+	<div class="outer">
+		<div class="left-part">
+			<div class="condition condition1">
+				<div class="title">股票代码</div>
+				<div class="field">
+					<input class="form-control input-sm one" type="text" id="code" />
+				</div>
+				<div class="title">股票名称</div>
+				<div class="field">
+					<input class="form-control input-sm one" type="text" id="name" />
+				</div>
+				<br />
+				<div class="title">价格</div>
+				<div class="field">
+					<input class="form-control input-sm two" type="text" id="price1" value="0" />~
+					<input class="form-control input-sm two" type="text" id="price2"
+						value="99999" />
+				</div>
+				<div class="title">市盈率PE</div>
+				<div class="field">
+					<input class="form-control input-sm two" type="text" id="peRation1"
+						value="0" />~ <input class="form-control input-sm two" type="text"
+						id="peRation2" value="99999" />
+				</div>
+				<div class="title">换手率</div>
+				<div class="field">
+					<input class="form-control input-sm two" type="text" id="changeRate1"
+						value="0" />~ <input class="form-control input-sm two" type="text"
+						id="changeRate2" value="99999" />
+				</div>
+				<div class="title">毛利率</div>
+				<div class="field">
+					<input class="form-control input-sm two" type="text" id="sellProfit1"
+						value="0" />~ <input class="form-control input-sm two" type="text"
+						id="sellProfit2" value="100" />
+				</div>
+
+				<div class="title">净利率</div>
+				<div class="field">
+					<input class="form-control input-sm two" type="text" id="netProfitRate1"
+						value="0" />~ <input class="form-control input-sm two" type="text"
+						id="netProfitRate2" value="100" />
+				</div>
+				<div class="title">净资产收益率</div>
+				<div class="field">
+					<input class="form-control input-sm two" type="text" id="assetRate1"
+						value="0" />~ <input class="form-control input-sm two" type="text"
+						id="assetRate2" value="99999" />
+				</div>
+				<div class="title">有无分红</div>
+				<div class="field">
+					<select class="form-control input-sm one" id="field13">
+						<option value="1">有</option>
+						<option value="0">无</option>
+					</select>
+				</div>
+				<div class="title">股息率</div>
+				<div class="field">
+					<input class="form-control input-sm two" type="text" id="guxiRate1"
+						value="0" />~ <input class="form-control input-sm two" type="text"
+						id="guxiRate2" value="100" />
+				</div>
+
+				<div class="btn-area">
+					<button class="btn btn-primary btn-xs" id="search1" type="button">查询</button>
+					<input class="form-control input-sm filterName" type="text" id="filterName"
+						placeholder="请输入过滤条件名称" />
+					<button class="btn btn-primary btn-xs" id="save" type="button">保存查询条件</button>
+				</div>
+			</div>
+			<div class="condition filter">
+				<div class="title">filter</div>
+				<div class="field">
+					<select class="form-control input-sm one" id="filter">
+					</select>
+				</div>
+				<div class="btn-area">
+					<button class="btn btn-primary btn-xs" id="search2" type="button">查询</button>
+				</div>
+			</div>
+
+			<div class="list">
+				<table class='tbl-stock tbl-stock-title small'></table>
+				<table class='tbl-stock tbl-stock-data small'></table>
+			</div>
+		</div>
+
+		<div class="right-part">
+			<!-- hangqing -->
+			<div id='canvas-div'>
+				<canvas id="canvas"></canvas>
+			</div>
+			<!-- pe -->
+			<!-- report -->
+			<div class="report">
+				<table class='tbl-report small'>
+
+				</table>
+			</div>
+		</div>
+		
+		<div class="summary">
+			<div class="day-volume">
+				<canvas id="day_volume"></canvas>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
