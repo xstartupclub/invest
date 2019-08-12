@@ -17,7 +17,9 @@
 		<div class="tab-area">
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#stockinfo"
+				<li role="presentation" class="active"><a href="#overview"
+					aria-controls="#overview" role="tab" data-toggle="tab">总览</a></li>
+				<li role="presentation"><a href="#stockinfo"
 					aria-controls="#stockinfo" role="tab" data-toggle="tab">分析</a></li>
 				<li role="presentation"><a href="#stockHold"
 					aria-controls="stockHold" role="tab" data-toggle="tab">持仓</a></li>
@@ -29,11 +31,14 @@
 
 			<!-- Tab panes -->
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="stockinfo">
+				<div role="tabpanel" class="tab-pane active" id="overview">
+					<iframe src="overview.html" class="stock-frame"></iframe>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="stockinfo">
 					<iframe src="stock.html" class="stock-frame"></iframe>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="stockHold">
-				 	<div class='title'>新增</div>
+					<div class='title'>新增</div>
 					<div class="saveForm">
 						<input class="form-control input-sm code" type="text"
 							placeholder="请输入股票代码" />
@@ -41,63 +46,65 @@
 						<button class="btn btn-primary btn-xs delete" type="button">删除</button>
 					</div>
 					<div class="list-stockHold">
-					<div class='title'>结果列表</div>
+						<div class='title'>结果列表</div>
 						<table></table>
 					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="stockBill">
-				<div class='saveForm'>
-				    <div class='title'>新增/修改</div>
-				    <input class="form-control input-sm id" type="hidden" />
-					<input class="form-control input-sm code" type="text"
-							placeholder="请输入股票代码" />
-					<input type='date' class="form-control input-sm date"/>	
-					<select class="form-control input-sm type">
-						<option value="">请选择交易类型</option>
-					</select>
-					<input type='text' class="form-control input-sm price" placeholder="交易价格"/>	
-					<input type='text' class="form-control input-sm volume" placeholder="交易数量"/>	
-					<input type='text' class="form-control input-sm amount" placeholder="交易金额"/>	
-					<button class="btn btn-primary btn-xs save" type="button">保存</button>	
-					<button class="btn btn-primary btn-xs delete" type="button">删除</button>
-					<button class="btn btn-primary btn-xs reset" type="button">清空</button>		
-				</div>
-				<div class='condition'>
-				<div class='title'>查询条件</div>
-					<input type='date' class="form-control input-sm startDate"/>
-					 ~ <input type='date' class="form-control input-sm endDate"/> 
-					 <button class="btn btn-primary btn-xs search" type="button">查询</button>	
-				</div>
-				<div class="list-stockBill">
-				<div class='title'>结果列表</div>
+					<div class='saveForm'>
+						<div class='title'>新增/修改</div>
+						<input class="form-control input-sm id" type="hidden" /> <input
+							class="form-control input-sm code" type="text"
+							placeholder="请输入股票代码" /> <input type='date'
+							class="form-control input-sm date" /> <select
+							class="form-control input-sm type">
+							<option value="">请选择交易类型</option>
+						</select> <input type='text' class="form-control input-sm price"
+							placeholder="交易价格" /> <input type='text'
+							class="form-control input-sm volume" placeholder="交易数量" /> <input
+							type='text' class="form-control input-sm amount"
+							placeholder="交易金额" />
+						<button class="btn btn-primary btn-xs save" type="button">保存</button>
+						<button class="btn btn-primary btn-xs delete" type="button">删除</button>
+						<button class="btn btn-primary btn-xs reset" type="button">清空</button>
+					</div>
+					<div class='condition'>
+						<div class='title'>查询条件</div>
+						<input type='date' class="form-control input-sm startDate" /> ~ <input
+							type='date' class="form-control input-sm endDate" />
+						<button class="btn btn-primary btn-xs search" type="button">查询</button>
+					</div>
+					<div class="list-stockBill">
+						<div class='title'>结果列表</div>
 						<table></table>
 					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="accountBill">
-				<div class='saveForm'>
-				    <div class='title'>新增/修改</div>
-				    <input class="form-control input-sm id" type="hidden" />
-					<input type='date' class="form-control input-sm date"/>	
-					<select class="form-control input-sm type">
-						<option value="">请选择交易类型</option>
-					</select>
-					<input type='text' class="form-control input-sm amount" placeholder="交易金额"/>	
-					<input type='text' class="form-control input-sm money" placeholder="资金"/>	
-					<input type='text' class="form-control input-sm stock" placeholder="股份"/>	
-					<button class="btn btn-primary btn-xs save" type="button">保存</button>	
-					<button class="btn btn-primary btn-xs delete" type="button">删除</button>
-					<button class="btn btn-primary btn-xs reset" type="button">清空</button>		
-				</div>
-				<div class='condition'>
-				<div class='title'>查询条件</div>
-					<input type='date' class="form-control input-sm startDate"/>
-					 ~ <input type='date' class="form-control input-sm endDate"/> 
-					 <button class="btn btn-primary btn-xs search" type="button">查询</button>	
-				</div>
-				<div class="list-accountBill">
-				<div class='title'>结果列表</div>
+					<div class='saveForm'>
+						<div class='title'>新增/修改</div>
+						<input class="form-control input-sm id" type="hidden" /> <input
+							type='date' class="form-control input-sm date" /> <select
+							class="form-control input-sm type">
+							<option value="">请选择交易类型</option>
+						</select> <input type='text' class="form-control input-sm amount"
+							placeholder="交易金额" /> <input type='text'
+							class="form-control input-sm money" placeholder="资金" /> <input
+							type='text' class="form-control input-sm stock" placeholder="股份" />
+						<button class="btn btn-primary btn-xs save" type="button">保存</button>
+						<button class="btn btn-primary btn-xs delete" type="button">删除</button>
+						<button class="btn btn-primary btn-xs reset" type="button">清空</button>
+					</div>
+					<div class='condition'>
+						<div class='title'>查询条件</div>
+						<input type='date' class="form-control input-sm startDate" /> ~ <input
+							type='date' class="form-control input-sm endDate" />
+						<button class="btn btn-primary btn-xs search" type="button">查询</button>
+					</div>
+					<div class="list-accountBill">
+						<div class='title'>结果列表</div>
 						<table></table>
-					</div></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
