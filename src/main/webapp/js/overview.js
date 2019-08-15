@@ -1,7 +1,9 @@
 var config;
+var config_pe;
 var volAmtList = [];
 $(document).ready(function() {
 	initCanvas();
+	initPeCanvas();
 	$.ajax({
 		type : 'POST',
 		url : '/invest/main/getData.do',
@@ -28,6 +30,9 @@ $(document).ready(function() {
 		var shenzAmtList = [];
 		var chuangyVolList = [];
 		var chuangyAmtList = [];
+		var shangzPeList = [];
+		var shenzPeList = [];
+		var chuangyPeList = [];
 		for (var i=0; i<volAmtList.length; i++) {
 			labelList.push(volAmtList[i].date);
 			shangzVolList.push(volAmtList[i].volume1);
@@ -36,6 +41,9 @@ $(document).ready(function() {
 			shenzAmtList.push(volAmtList[i].amount2);
 			chuangyVolList.push(volAmtList[i].volume3);
 			chuangyAmtList.push(volAmtList[i].amount3);
+			shangzPeList.push(volAmtList[i].pe1);
+			shenzPeList.push(volAmtList[i].pe2);
+			chuangyPeList.push(volAmtList[i].pe3);
 		}
 		
 		config.data.labels = labelList;
@@ -46,7 +54,13 @@ $(document).ready(function() {
 		config.data.datasets[4].data = chuangyVolList;
 		config.data.datasets[5].data = chuangyAmtList;
 		
-		window.myLine.update();		
+		config_pe.data.labels = labelList;
+		config_pe.data.datasets[0].data = shangzPeList;
+		config_pe.data.datasets[1].data = shenzPeList;
+		config_pe.data.datasets[2].data = chuangyPeList;
+		
+		window.myLine.update();	
+		window.myLinePe.update();
 	}
 
 	function initCanvas() {
@@ -124,8 +138,67 @@ $(document).ready(function() {
 
 		var ctx = document.getElementById('day_volume').getContext('2d');
 		window.myLine = new Chart(ctx, config);
-
 	}
+	
+	function initPeCanvas() {
+		var timeFormat = 'MM/DD/YYYY';
+		var color = Chart.helpers.color;
+		config_pe = {
+			type: 'line',
+			data: {
+				labels: [ // Date Objects
+				],
+				datasets: [{
+					label: 'shangz-pe',
+					backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.red,
+					fill: false,
+					data: [],
+				}, {
+					label: 'shenz-pe',
+					backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.blue,
+					fill: false,
+					data: [],
+				}, {
+					label: 'chuangy-pe',
+					backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.yellow,
+					fill: false,
+					data: [],
+				}]
+			},
+			options: {
+				title: {
+					text: 'Chart.js Time Scale'
+				},
+				scales: {
+					xAxes: [{
+//						type: 'time',
+//						time: {
+//							parser: timeFormat,
+//							// round: 'day'
+//							//tooltipFormat: 'll HH:mm'
+//						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Date'
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'value'
+						}
+					}]
+				},
+			}
+		};
+
+		var ctx = document.getElementById('day_pe').getContext('2d');
+		window.myLinePe = new Chart(ctx, config_pe);
+	}
+	
 	function transYmd(date) {
 		var reg = new RegExp("-","g");//g,表示全部替换。
 		date = date.replace(reg,"");
